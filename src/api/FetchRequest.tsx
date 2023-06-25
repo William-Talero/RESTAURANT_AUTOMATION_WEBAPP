@@ -1,4 +1,4 @@
-export const GetApiRequest = async (url, token) => {
+export const GetApiRequest = async (url: string, token: string) => {
   try {
     let config = {
       method: "GET",
@@ -12,7 +12,7 @@ export const GetApiRequest = async (url, token) => {
   }
 };
 
-export const GetApiRequestWithoutToken = async (url) => {
+export const GetApiRequestWithoutToken = async (url: string) => {
   try {
     let config = {
       method: "GET",
@@ -28,7 +28,7 @@ export const GetApiRequestWithoutToken = async (url) => {
   }
 };
 
-export const PostApiRequest = async (url, token, body) => {
+export const PostApiRequest = async (url: string, token: string, body: string) => {
   try {
     let config = {
       method: "POST",
@@ -45,7 +45,7 @@ export const PostApiRequest = async (url, token, body) => {
   }
 };
 
-export const PostApiRequestFormData = async (url, token, formData) => {
+export const PostApiRequestFormData = async (url: string, token: string, formData: string) => {
   try {
     let config = {
       method: "POST",
@@ -61,7 +61,7 @@ export const PostApiRequestFormData = async (url, token, formData) => {
   }
 };
 
-export const PostApiRequestWithoutToken = async (url) => {
+export const PostApiRequestWithoutToken = async (url: string) => {
   try {
     let config = {
       method: "POST",
@@ -79,7 +79,7 @@ export const PostApiRequestWithoutToken = async (url) => {
   }
 };
 
-export const PutApiRequest = async (url, token, body) => {
+export const PutApiRequest = async (url: string, token: string, body: string) => {
   try {
     let config = {
       method: "PUT",
@@ -96,7 +96,7 @@ export const PutApiRequest = async (url, token, body) => {
   }
 };
 
-export const DeleteApiRequest = async (url, token) => {
+export const DeleteApiRequest = async (url: string, token: string) => {
   try {
     let config = {
       method: "DELETE",

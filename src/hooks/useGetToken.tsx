@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { CallApiGetToken } from "../api/CallApi";
+import { CallApiGetToken } from "../api/CallAPI";
 
 const useGetToken = () => {
   const [token, setToken] = useState("");

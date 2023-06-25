@@ -7,10 +7,10 @@ import {
   PostApiRequestFormData,
   DeleteApiRequest,
 } from "./FetchRequest";
-import Configuration from "./config";
+import Configuration from "./Configuration";
 
 export const CallApiGetToken = async () => {
   let url = `${process.env.REACT_APP_API_RUTE}${Configuration.Authentication}`;
-  let data = await GetApiRequestWithoutToken(`${url}`);
-  return await data.json();
+  const data = await GetApiRequestWithoutToken(`${url}`);
+  return data ? await data.json() : [];
 };
