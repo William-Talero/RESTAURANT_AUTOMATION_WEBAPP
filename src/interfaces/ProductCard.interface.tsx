@@ -36,3 +36,20 @@ export interface ICardButton {
   colorHover?: string;
   shadowHover?: string;
 }
+
+export interface ICardData {
+    category: string;
+    description: string;
+    image: string;
+    name: string;
+    price: number;
+    tags: string[];
+    top: number;
+    __v: number;
+    _id: string;
+}
+
+export interface IMenuInputProps {
+    products: Array<object>;
+    setProductsFilter: React.Dispatch<React.SetStateAction<any>>;
+  }

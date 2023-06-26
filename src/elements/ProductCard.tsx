@@ -13,7 +13,7 @@ const CardContainer = styled.div`
   padding: 2rem 5rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   @media (max-width: 60rem) {
@@ -62,7 +62,7 @@ const CardSection = styled.div<ICardSection>`
   }
 `;
 
-const CardImage = styled(Image)`
+const CardImage = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;

@@ -9,11 +9,12 @@ import {
   ButtonContainer,
   CardButton,
 } from "../elements/ProductCard";
-import tiramisuImage from "../assets/images/tiramisu.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { ICardData } from "@/interfaces/ProductCard.interface";
 
-const ProductCard = () => {
+const ProductCard = ({ product }: { product: ICardData }) => {
+  console.log(product);
   return (
     <Card>
       <CardSection
@@ -23,26 +24,36 @@ const ProductCard = () => {
         justify="space-between"
         padding="1.5rem"
       >
-        <CardTitle>Product Name</CardTitle>
+        <CardTitle>{product.name}</CardTitle>
         <CardDescription>
-          El Tiramisú es un postre italiano tradicional que combina la
-          cremosidad del mascarpone y los huevos, con la riqueza del café y el
-          cacao. Su nombre, que significa alegrame el día.
+          {product.description.substring(0, 150) + "..."}
         </CardDescription>
         <TagsContainer>
-          <Tag>Tag 1</Tag>
-          <Tag>Tag 2</Tag>
-          <Tag>Tag 3</Tag>
+          {product.tags.map((tag, index) => (
+            <Tag key={index}>{tag}</Tag>
+          ))}
         </TagsContainer>
         <ButtonContainer>
-          <CardButton width="60%" height="2rem" bgColor="primary" radius=".3rem">Ver Más</CardButton>
-          <CardButton width="36%" height="2rem" bgColor="secondary" radius=".3rem">
-            <FontAwesomeIcon icon={faCartShopping} size="xs" transform="shrink-13"/>
+          <CardButton
+            width="60%"
+            height="2rem"
+            bgColor="primary"
+            radius=".3rem"
+          >
+            Ver Más
+          </CardButton>
+          <CardButton
+            width="36%"
+            height="2rem"
+            bgColor="secondary"
+            radius=".3rem"
+          >
+            <FontAwesomeIcon icon={faCartShopping} />
           </CardButton>
         </ButtonContainer>
       </CardSection>
       <CardSection width="50%">
-        <CardImage src={tiramisuImage} alt="Tiramisu" />
+        <CardImage src={product.image} alt="Tiramisu" />
       </CardSection>
     </Card>
   );

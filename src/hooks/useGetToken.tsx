@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from "react";
 import { CallApiGetToken } from "../api/CallAPI";
 
@@ -7,7 +8,7 @@ const useGetToken = () => {
   useEffect(() => {
     const getToken = async () => {
       const response = await CallApiGetToken();
-      setToken(response);
+      setToken(response.token);
     };
     getToken();
   }, []);
