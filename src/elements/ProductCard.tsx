@@ -4,6 +4,7 @@ import {
   ICardSection,
   ICardTitle,
   ICardButton,
+  ICard
 } from "@/interfaces/ProductCard.interface";
 import Image from "next/image";
 
@@ -21,8 +22,8 @@ const CardContainer = styled.div`
   }
 `;
 
-const Card = styled.div`
-  width: 48%;
+const Card = styled.div<ICard>`
+  width: ${(props) => props.width || "100%"};
   height: 17rem;
   display: flex;
   justify-content: center;
@@ -31,12 +32,24 @@ const Card = styled.div`
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
   margin: 1%;
   overflow: hidden;
+  margin-bottom: ${(props) => props.marginBottom || "0"};
+  animation: ${(props) => props.animation || "none"};
+
+  @keyframes borderAnimation {
+    0% {
+      border: 5px solid blue;
+    }
+    100% {
+      border: 5px solid red;
+    }
+  }
 
   @media (max-width: 60rem) {
     width: 100%;
     margin: 1rem 0;
     flex-direction: column-reverse;
     height: auto;
+    margin-bottom: ${(props) => props.marginBottom || "0"};
   }
 `;
 

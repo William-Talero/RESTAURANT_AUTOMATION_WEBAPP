@@ -39,7 +39,7 @@ const Input = styled.input`
   height: 3rem;
   padding: 0.5rem 1rem;
   margin: 0.5rem 0;
-  border: 3px solid #8147f463;
+  border: 2px solid #8147f463;
   border-radius: 0.5rem;
   font-size: 0.8rem;
   font-weight: 400;
@@ -54,10 +54,10 @@ const Input = styled.input`
 
   @keyframes borderAnimation {
     0% {
-      border-color: blue;
+      border: 3px solid blue;
     }
     100% {
-      border-color: red;
+      border: 3px solid red;
     }
   }
 `;

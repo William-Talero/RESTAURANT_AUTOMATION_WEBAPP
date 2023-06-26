@@ -11,12 +11,16 @@ import {
 } from "../elements/ProductCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { ICardData } from "@/interfaces/ProductCard.interface";
+import { ISuggestCardData } from "@/interfaces/ProductCard.interface";
 
-const ProductCard = ({ product }: { product: ICardData }) => {
-  console.log(product);
+const SuggestProduct = ({
+  suggestProducts,
+}: {
+  suggestProducts: ISuggestCardData;
+}) => {
+  console.log(suggestProducts);
   return (
-    <Card width="48%">
+    <Card width="100%" marginBottom="4rem" animation="borderAnimation 1s infinite alternate">
       <CardSection
         width="50%"
         direction="column"
@@ -24,14 +28,18 @@ const ProductCard = ({ product }: { product: ICardData }) => {
         justify="space-between"
         padding="1.5rem"
       >
-        <CardTitle>{product.name}</CardTitle>
+        <CardTitle ia>{suggestProducts ? suggestProducts.name : "--"}</CardTitle>
         <CardDescription>
-          {product.description.substring(0, 150) + "..."}
+          {suggestProducts
+            ? suggestProducts.description?.substring(0, 150) + "..."
+            : "--"}
         </CardDescription>
         <TagsContainer>
-          {product.tags.map((tag, index) => (
-            <Tag key={index}>{tag}</Tag>
-          ))}
+          {suggestProducts
+            ? suggestProducts.tags?.map((tag, index) => (
+                <Tag key={index}>{tag}</Tag>
+              ))
+            : "--"}
         </TagsContainer>
         <ButtonContainer>
           <CardButton
@@ -53,10 +61,13 @@ const ProductCard = ({ product }: { product: ICardData }) => {
         </ButtonContainer>
       </CardSection>
       <CardSection width="50%">
-        <CardImage src={product.image} alt="Tiramisu" />
+        <CardImage
+          src={suggestProducts ? suggestProducts.image : "--"}
+          alt="Tiramisu"
+        />
       </CardSection>
     </Card>
   );
 };
 
-export default ProductCard;
+export default SuggestProduct;

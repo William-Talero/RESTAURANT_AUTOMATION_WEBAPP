@@ -1,3 +1,10 @@
+export interface ICard {
+    width?: string;
+    height?: string;
+    marginBottom?: string;
+    animation?: string;
+}
+
 export interface ICardSection {
   width?: string;
   height?: string;
@@ -49,7 +56,23 @@ export interface ICardData {
     _id: string;
 }
 
+
+export interface ISuggestCardData {
+    category?: string;
+    description?: string;
+    image?: string;
+    name?: string;
+    price?: number;
+    tags?: string[];
+    top?: number;
+    __v?: number;
+    _id?: string;
+}
+
+
 export interface IMenuInputProps {
     products: Array<object>;
     setProductsFilter: React.Dispatch<React.SetStateAction<any>>;
+    setSuggestProducts: React.Dispatch<React.SetStateAction<any>>;
+    setExistSuggestProducts: React.Dispatch<React.SetStateAction<any>>;
   }

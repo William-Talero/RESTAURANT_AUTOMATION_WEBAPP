@@ -4,7 +4,12 @@ import useGetToken from "@/hooks/useGetToken";
 import { CallApiGetSuggestProduct } from "@/api/CallAPI";
 import { IMenuInputProps } from "@/interfaces/ProductCard.interface";
 
-const InputMenu = ({ products, setProductsFilter }: IMenuInputProps) => {
+const InputMenu = ({
+  products,
+  setProductsFilter,
+  setSuggestProducts,
+  setExistSuggestProducts,
+}: IMenuInputProps) => {
   const [input, setInput] = useState("");
 
   const token = useGetToken();
@@ -18,11 +23,20 @@ const InputMenu = ({ products, setProductsFilter }: IMenuInputProps) => {
         const { response } = await CallApiGetSuggestProduct(token, body);
         console.log(response);
         setProductsFilter(response.otherProducts);
+        if (
+          response.suggestProduct !==
+          "No se encuentra un producto con dichas especificaciones."
+        ) {
+          setSuggestProducts(response.suggestProduct);
+          setExistSuggestProducts(true);
+        }
       } catch (error) {
         console.log(error);
       }
     } else {
       setProductsFilter(products);
+      setExistSuggestProducts(false);
+      setSuggestProducts({});
     }
   };
 
