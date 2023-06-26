@@ -5,22 +5,23 @@ import { Container, Content } from "../elements/PrincipalContainer";
 import { CardContainer } from "../elements/ProductCard";
 import ProductCard from "@/components/ProductCard";
 import useGetAllProducts from "@/hooks/useGetAllProducts";
-import { MenuTitle } from "@/elements/MenuElements";
+import { MenuTitle, CategoryName } from "@/elements/MenuElements";
 import InputMenu from "@/components/InputMenu";
 import SuggestProduct from "@/components/SuggestProduct";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRobot } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const [cargando, setCargando] = useState(true);
   const [productsFilter, setProductsFilter] = useState([]);
   const [suggestProducts, setSuggestProducts] = useState({});
+  const [category, setCategory] = useState("");
   const [existSuggestProducts, setExistSuggestProducts] = useState(false);
   const products = useGetAllProducts();
 
   useEffect(() => {
     products.length > 0 && (setCargando(false), setProductsFilter(products));
   }, [products]);
-
-  console.log(suggestProducts);
 
   return (
     <Container>
@@ -35,10 +36,23 @@ export default function Home() {
         {!cargando && (
           <CardContainer>
             {existSuggestProducts && (
-              <SuggestProduct suggestProducts={suggestProducts} />
+              <>
+                <CategoryName>
+                  <p>Nuestra Sugerencia</p>
+                  <FontAwesomeIcon icon={faRobot} color="blue" bounce />
+                </CategoryName>
+                <SuggestProduct suggestProducts={suggestProducts} />
+              </>
             )}
             {productsFilter.map((product, index) => (
-              <ProductCard key={index} product={product} />
+              <ProductCard
+                key={index}
+                product={product}
+                products={products}
+                index={index}
+                category={category}
+                setCategory={setCategory}
+              />
             ))}
           </CardContainer>
         )}

@@ -62,4 +62,36 @@ const Input = styled.input`
   }
 `;
 
-export { MenuTitle, Form, Input };
+const CategoryName = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 1rem;
+  margin: 1.5rem 0;
+  background-color: transparent;
+  font-size: 1.2rem;
+  font-weight: 700;
+  //Color que sea un degradado de morado claro a oscuro
+  background: linear-gradient(90deg, #5d00ff 0%, #0f002d 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  text-align: left;
+  margin-top: 2rem;
+
+  p{
+    margin-right: 1rem;
+    height: auto;
+  }
+
+    @media (max-width: 60rem) {
+    font-size: 1rem;
+    padding: 0;
+    margin: 1rem 0;
+    margin-top: 2rem;
+    }
+`;
+
+export { MenuTitle, Form, Input, CategoryName };
