@@ -33,6 +33,7 @@ const ProductCard = ({
 
     const categoryCurrent = product.category;
     const beforeCategory = products[index - 1].category;
+
     return categoryCurrent !== beforeCategory;
   };
 

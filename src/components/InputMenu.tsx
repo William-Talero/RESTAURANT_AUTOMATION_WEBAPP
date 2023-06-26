@@ -21,7 +21,6 @@ const InputMenu = ({
           prompt: input,
         });
         const { response } = await CallApiGetSuggestProduct(token, body);
-        console.log(response);
         setProductsFilter(response.otherProducts);
         if (
           response.suggestProduct !==
@@ -63,7 +62,8 @@ const InputMenu = ({
         type="text"
         value={input}
         onChange={handleChange}
-        placeholder="Buscar..."
+        autoComplete="off"
+        placeholder="Que te gustaría probar hoy..."
       />
     </Form>
   );

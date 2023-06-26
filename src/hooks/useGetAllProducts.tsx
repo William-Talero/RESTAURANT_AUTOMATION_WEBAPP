@@ -6,8 +6,6 @@ const useGetAllProducts = () => {
   const [products, setProducts] = useState([]);
   const token = useGetToken();
 
-  console.log(products);
-
   useEffect(() => {
     const getProducts = async () => {
       const response = await CallApiGetAllProducts(token);

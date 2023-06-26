@@ -9,8 +9,6 @@ import {
 } from "./FetchRequest";
 import Configuration from "./Configuration";
 
-console.log(process.env.NEXT_PUBLIC_REACT_APP_API_RUTE);
-
 export const CallApiGetToken = async () => {
   let url = `${process.env.NEXT_PUBLIC_REACT_APP_API_RUTE}${Configuration.Authentication}`;
   const data = await GetApiRequestWithoutToken(`${url}`);

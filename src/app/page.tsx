@@ -48,7 +48,7 @@ export default function Home() {
               <ProductCard
                 key={index}
                 product={product}
-                products={products}
+                products={productsFilter}
                 index={index}
                 category={category}
                 setCategory={setCategory}

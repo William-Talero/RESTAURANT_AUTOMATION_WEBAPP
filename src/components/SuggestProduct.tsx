@@ -18,7 +18,6 @@ const SuggestProduct = ({
 }: {
   suggestProducts: ISuggestCardData;
 }) => {
-  console.log(suggestProducts);
   return (
     <Card width="100%" marginBottom="4rem" animation="borderAnimation 1s infinite alternate">
       <CardSection
