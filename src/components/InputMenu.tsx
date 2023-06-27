@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Form, Input } from "@/elements/MenuElements";
-import useGetToken from "@/hooks/useGetToken";
-import { CallApiGetSuggestProduct } from "@/api/CallAPI";
+import { CallApiGetSuggestProduct, CallApiGetToken } from "@/api/CallAPI";
 import { IMenuInputProps } from "@/interfaces/ProductCard.interface";
 
 const InputMenu = ({
@@ -12,15 +11,14 @@ const InputMenu = ({
 }: IMenuInputProps) => {
   const [input, setInput] = useState("");
 
-  const token = useGetToken();
-
   const getSuggestProducts = async () => {
     if (input !== "") {
       try {
         const body = JSON.stringify({
           prompt: input,
         });
-        const { response } = await CallApiGetSuggestProduct(token, body);
+        const token = await CallApiGetToken();
+        const { response } = await CallApiGetSuggestProduct(token.token, body);
         setProductsFilter(response.otherProducts);
         if (
           response.suggestProduct !==
