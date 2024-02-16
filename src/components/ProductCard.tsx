@@ -71,7 +71,7 @@ const ProductCard = ({
             <CardButton
               width="36%"
               height="2rem"
-              bgColor="secondary"
+              bgColor="secondary" 
               radius=".3rem"
             >
               <FontAwesomeIcon icon={faCartShopping} />
