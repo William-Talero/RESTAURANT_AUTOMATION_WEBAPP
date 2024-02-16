@@ -16,7 +16,6 @@ export const CallApiGetToken = async () => {
 };
 
 export const CallApiGetAllProducts = async (token: string) => {
-  console.log(token);
   let url = `${process.env.NEXT_PUBLIC_REACT_APP_API_RUTE}${Configuration.GetAllProducts}`;
   const data = await GetApiRequest(`${url}`, token);
   return data ? await data.json() : [];
